@@ -37,8 +37,8 @@ def main():
             break
 
         try:
-            request = Request(request=user_input)
-        except InvalidRequest as e:
+            request = Request(request=user_input, storages=storeges)
+        except BaseError as e:
             print(e.massage)
             continue
 

@@ -1,8 +1,9 @@
-from exeptions import InvalidRequest
+from entity.abstract_storage import AbstractStorage
+from exeptions import InvalidRequest, InvalidStorageName
 
 
 class Request:
-    def __init__(self, request: str):
+    def __init__(self, request: str, storages: dict[str, AbstractStorage]):
 
         splitted_request = request.lower().split(' ')
         if len(splitted_request) != 7:
@@ -12,3 +13,8 @@ class Request:
         self.product = splitted_request[2]
         self.departure = splitted_request[4]
         self.destination = splitted_request[6]
+
+        if self.departure not in storages or self.destination not in storages:
+            raise InvalidStorageName
+
+

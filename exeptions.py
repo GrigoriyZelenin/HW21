@@ -16,3 +16,7 @@ class ToManyDifferentProducts(BaseError):
 
 class InvalidRequest(BaseError):
     massage = 'Неправильный запрос, попробуйте снова'
+
+
+class InvalidStorageName(BaseError):
+    massage = 'Выбран несуществующий склад'
